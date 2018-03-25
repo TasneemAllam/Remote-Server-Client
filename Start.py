@@ -6,7 +6,7 @@ import paramiko
 import sys
 def ssh(command):
     nbytes = 4096
-    hostname = '172.20.10.14'
+    hostname = '192.168.1.9'
     port = 22
     username = 'rana'
     password = 'rana95'
@@ -63,7 +63,7 @@ class readerth(threading.Thread):
         self.id =id
 
     def run(self):
-       command = 'python ./PycharmProjects/Clients/reader.py ' \
+       command = 'python ./Desktop/Remote\ Server-Client/Clients/reader.py ' \
                  + str(self.ip) + ' ' + str(self.port) + ' ' + str(self.id) + ' ' + str(self.num_access)
        ssh(command)
 
@@ -79,7 +79,7 @@ class writerth(threading.Thread):
         self.id = id
 
     def run(self):
-        command = 'python ./PycharmProjects/Clients/writer.py ' \
+        command = 'python ./Desktop/Remote Server-Client/Clients/writer.py ' \
                   + str(self.ip) + ' ' + str(self.port) + ' ' + str(self.id) + ' ' + str(self.num_access)
         ssh(command)
 

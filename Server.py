@@ -22,7 +22,7 @@ rseq = 0
 def servercall(ip,port,num_access):
     @Pyro4.expose
     class Clients:
-        def excute_reader(self, id):
+        def execute_reader(self, id):
             global oval, s_seq, rnum, busy, pointer_list, rseq
             pointer_list = {}
 
@@ -48,7 +48,7 @@ def servercall(ip,port,num_access):
                 rnum -= 1
                 return oval_temp, s_seq, pointer_list[pointer]
 
-        def excute_writer(self,id):
+        def execute_writer(self,id):
             global oval, s_seq, rnum, busy, pointer_list, rseq
             pointer_list = {}
 
@@ -76,7 +76,7 @@ def servercall(ip,port,num_access):
                 rnum -= 1
                 return confirm, s_seq ,pointer_list[pointer]
 
-    daemon = Pyro4.Daemon(host='192.168.1.10', port=5555)
+    daemon = Pyro4.Daemon(host= ip, port= port)
 
     uri = daemon.register(Clients)
     ns = Pyro4.locateNS()

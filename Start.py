@@ -63,7 +63,7 @@ class readerth(threading.Thread):
         self.id =id
 
     def run(self):
-       command = 'python ./Desktop/Remote\ Server-Client/Clients/reader.py ' \
+       command = 'python ./PycharmProjects/Remote-Server-Client/Clients/reader.py ' \
                  + str(self.ip) + ' ' + str(self.port) + ' ' + str(self.id) + ' ' + str(self.num_access)
        ssh(command)
 
@@ -79,7 +79,7 @@ class writerth(threading.Thread):
         self.id = id
 
     def run(self):
-        command = 'python ./Desktop/Remote Server-Client/Clients/writer.py ' \
+        command = 'python ./PycharmProjects/Remote-Server-Client/Clients/writer.py ' \
                   + str(self.ip) + ' ' + str(self.port) + ' ' + str(self.id) + ' ' + str(self.num_access)
         ssh(command)
 
